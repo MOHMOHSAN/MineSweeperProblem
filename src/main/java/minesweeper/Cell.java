@@ -3,6 +3,7 @@ package main.java.minesweeper;
 public class Cell {
     private boolean isFlag = false;
     private int adjacentMinesCount = 0;
+    private boolean isRevealed = false;
 
     // Getter and Setter for isFlag
     public boolean isFlag() {
@@ -22,10 +23,19 @@ public class Cell {
         this.adjacentMinesCount = adjacentMinesCount;
     }
 
+    // Getter and Setter for isRevealed
+    public boolean isRevealed() {
+        return isRevealed;
+    }
+
+    public void setRevealed(boolean revealed) {
+        this.isRevealed = revealed;
+    }
+
     @Override
     public String toString(){
-        if(isFlag){ return "f"; }
-        if(adjacentMinesCount != 0){ return adjacentMinesCount+""; }
-        return "_";
+        if(!isRevealed) return "_";
+        // if(isFlag){ return "Bomb"; }
+        return adjacentMinesCount + "";
     }
 }

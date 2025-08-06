@@ -8,4 +8,12 @@ public class AlphabetConvertUtil {
 
        return String.valueOf((char) ('A' + number));
     }
+
+    public static int LetterToNumResult(char ch) {
+        if (ch < 'A' || ch > 'Z') {
+            throw new IllegalArgumentException("Character must be between A and Z");
+        }
+
+        return ch - 'A';
+    }
 }
