@@ -1,5 +1,5 @@
 ### Prerequisite
-Ensure that out/main/java folder is existed from root directory to put java compiled class
+Ensure that out/main and out/test folders are existed from root directory to put java compiled class files
 cd MineSweeperProblem
 - mkdir out\main
 - mkdir out\test
