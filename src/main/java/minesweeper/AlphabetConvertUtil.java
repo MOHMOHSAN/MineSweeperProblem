@@ -1,4 +1,4 @@
-package main.java.minesweeper;
+package minesweeper;
 
 public class AlphabetConvertUtil {
     public static String numToLetterResult(int number) {

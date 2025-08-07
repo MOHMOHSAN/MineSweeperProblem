@@ -1,8 +1,8 @@
-package main.java.minesweeper;
+package minesweeper;
 
 public class Cell {
     private boolean isFlag = false;
-    private int adjacentMinesCount = 0;
+    private int adjacentMinesCount = -1;
     private boolean isRevealed = false;
 
     // Getter and Setter for isFlag
@@ -34,8 +34,8 @@ public class Cell {
 
     @Override
     public String toString(){
-        if(!isRevealed) return "_";
-        // if(isFlag){ return "Bomb"; }
-        return adjacentMinesCount + "";
+      if(!isRevealed) return "_";
+      //if(isFlag){ return "Bomb"; }
+      return adjacentMinesCount + "";
     }
 }

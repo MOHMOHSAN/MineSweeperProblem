@@ -1,5 +1,4 @@
-package main.java.minesweeper;
-
+package minesweeper;
 import java.util.Objects;
 import java.util.Random;
 
@@ -18,6 +17,10 @@ public class Board {
         this.noOfMines = noOfMines;
         this.cellGrid  = new Cell[boardSize][boardSize];
         createBoardWithMines();
+    }
+
+    public Cell[][] getAllCellsGrid() {
+        return cellGrid;
     }
 
     private void createBoardWithMines(){
@@ -44,18 +47,18 @@ public class Board {
         }
 
         //Testing to put Mine
-        //cellGrid[0][1].setFlag(true);
-        //cellGrid[1][1].setFlag(true);
-        //cellGrid[2][0].setFlag(true);
+//        cellGrid[0][1].setFlag(true);
+//        cellGrid[1][1].setFlag(true);
+//        cellGrid[2][0].setFlag(true);
     }
 
     // To check if the current grid is valid
-    private boolean isValidGrid(int rowIndex, int colIndex) {
+    public boolean isValidGrid(int rowIndex, int colIndex) {
         return rowIndex >= 0 && rowIndex < rows && colIndex >=0 && colIndex < cols;
     }
 
     // Get All mines count at the adjacent cells except on mine cell
-    private void setAllAdjacentMinesCount(){
+    public void setAllAdjacentMinesCount(){
         for(int i=0; i < rows; i++){
             for(int j=0; j < cols; j++){
                 Cell currentCell = cellGrid[i][j];
@@ -159,7 +162,9 @@ public class Board {
         char [] c =  selectedSquare.toCharArray();
         int selectedRow = AlphabetConvertUtil.LetterToNumResult(c[0]);
         int selectedCol = c[1] - '0' - 1;
-        int result = cellGrid[selectedRow][selectedCol].getAdjacentMinesCount();
-        System.out.printf("This square contains %s adjacent mines.\n\n", result);
+        int result =  cellGrid[selectedRow][selectedCol].getAdjacentMinesCount();
+        if(result > -1 ) {
+            System.out.printf("This square contains %s adjacent mines.\n\n", result);
+        }
     }
 }
